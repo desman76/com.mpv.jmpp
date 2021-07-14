@@ -18,17 +18,13 @@ public final class Util {
 
     private static void loadDriver() {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public static Connection open() {
-        try {
-            return DriverManager.getConnection(URL_KEY,USERNAME_KEY, PASSWORD_KEY);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    public static Connection open() throws SQLException{
+        return DriverManager.getConnection(URL_KEY,USERNAME_KEY, PASSWORD_KEY);
     }
 }
