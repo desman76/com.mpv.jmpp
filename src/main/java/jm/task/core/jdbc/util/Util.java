@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public final class Util {
-    private static final String USERNAME_KEY = PropertiesUtil.get("db.username");
-    private static final String PASSWORD_KEY = PropertiesUtil.get("db.password");
-    private static final String URL_KEY = PropertiesUtil.get("db.url");
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "root";
+    private static final String URL = "jdbc:mysql://localhost:3306/jmpp";
 
     private Util() {
     }
@@ -24,7 +24,10 @@ public final class Util {
         }
     }
 
-    public static Connection open() throws SQLException{
-        return DriverManager.getConnection(URL_KEY,USERNAME_KEY, PASSWORD_KEY);
+    public static Connection getConnection() throws SQLException{
+//        Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+//        connection.setAutoCommit(false);
+//        return connection;
+        return DriverManager.getConnection(URL, USERNAME, PASSWORD);
     }
 }
