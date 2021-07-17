@@ -1,7 +1,5 @@
 package jm.task.core.jdbc.dao;
 
-import jm.task.core.jdbc.model.User;
-
 import java.util.List;
 
 public interface UserDao<T> {
@@ -9,7 +7,7 @@ public interface UserDao<T> {
 
     void dropUsersTable();
 
-    void saveUser(String name, String lastName, byte age);
+    void saveUser(T t);
 
     void removeUserById(long id);
 
